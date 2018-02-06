@@ -1,4 +1,4 @@
-using System;
+using FirstStepsAzureFunctions.Models;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 
@@ -7,9 +7,9 @@ namespace FirstStepsAzureFunctions
     public static class DataValidatorFunction
     {
         [FunctionName("DataValidatorFunction")]
-        public static void Run([QueueTrigger("myqueue-items", Connection = "")]string myQueueItem, TraceWriter log)
+		public static void Run([QueueTrigger("pokemonValidatorQueue")]Pokemon myQueueItem, TraceWriter log)
         {
-            log.Info($"C# Queue trigger function processed: {myQueueItem}");
+	        log.Info($"C# Queue trigger function processed");
         }
-    }
+	}
 }
